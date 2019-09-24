@@ -1,0 +1,32 @@
+.loader {
+    top: 20px;
+    height: 225px;
+    width: 225px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 50%;
+    border: 2px solid #43a047;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+}
+
+@keyframes busesDriving {
+    0% {
+        transform: translate(-1180px, 15px);
+    }
+    100% {
+        transform: translate(225px, 15px);
+    }
+
+}
+
+.animationLoader {
+    width: 1180px;
+    height: 70px;
+    position: relative;
+    top: 55px;
+
+    animation: busesDriving 3s linear;
+    animation-iteration-count: infinite;
+}
