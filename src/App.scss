@@ -1,11 +1,21 @@
+$color-primary : #ffffff;
+$color-secondary : #bbc3c6;
+$color-secondary-lighter : #e2ebed;
+$color-text : #1e1e20;
+$color-elements : #962715;
+$color-elements-active: #a01d26;
+
+
+
 [class^="icon-"], [class*=" icon-"] {
     display: inline-block;
     vertical-align: middle;
 }
 
-* {
+.App {
 font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 1rem;
     line-height: 1.7em;
     font-weight: 500;
+
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./TicketPreview.module.css"
+import styles from "./TicketPreview.module.scss"
 
 export const TicketPreview = (props) => {
     let statusStyle ='';
@@ -78,7 +78,7 @@ export const TicketPreview = (props) => {
                   </div>
               </div>
           </div>
-          <div className={styles.buttonGroup +' '+ statusStyle}>
+          <div className={styles.ticketButtonGroup +' '+ statusStyle}>
               <button className={styles.ticketButton + ' ' + styles.blankButton} type="button">Бланк</button>
               <button className={styles.ticketButton + ' ' + styles.routeButton} type="button">Маршрут</button>
               <button className={styles.ticketButton + ' ' + styles.returnButton} type="button">Возврат</button>

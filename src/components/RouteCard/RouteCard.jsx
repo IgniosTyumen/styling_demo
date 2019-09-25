@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./RouteCard.module.css"
+import styles from "./RouteCard.module.scss"
 import logoLuggage from "./../../assets/images/png/luggage.png"
 import logoCustoms from "./../../assets/images/png/customs.png"
 import logoCheap from "./../../assets/images/png/cheap.png"
@@ -14,42 +14,29 @@ import logoFast from "./../../assets/images/png/fast.png"
 export const RouteCard = (props) => {
     return (
         <div className={styles.card}>
-            <div className={styles.cardHeader}>
-                <div className={styles.busNumberContainer}>
-                    <div className="busLogoContainer">
-                        {/*TODO Add a svg sprite*/}
-                        {/*<Icon name="iconBus" color="#ffffff" size={35}/>*/}
-                        <div className={styles.busNumberBackgroud}>
-                            <span className={styles.busNumber}>551</span>
+              <div className={styles.cardBody}>
+                <div className={styles.travel}>
+                    <p className={styles.price}> 10 000<span>₽</span></p>
+                    <div className={styles.travelRoute}>
+                        <div className={styles.travelStart}>
+                            <div className={styles.travelStartLogoContainer}>
+                                <span className={styles.travelEndLogoContainerText}> 12:59 </span>
+                            </div>
+                            <div className={styles.travelStartData}>
+                                <div className={styles.travelDataCity}>Омск, автовокзал</div>
+                                <span className={styles.travelDataSeparator}> / </span>
+                                <div className={styles.travelDataTime}>25.01.2222</div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div className={styles.routeShortInfo}>
-                    <p className={styles.routeShortInfoDirection}>Омск-Астана </p>
-                    <p className={styles.routeShortInfoDataTime}>
-                        16<sup>59</sup> - 12<sup>22</sup>
-                    </p>
-                </div>
-                <p className={styles.price}> 10 000<span>₽</span></p>
-            </div>
-            <div className={styles.cardBody}>
-                <div className="travel">
-                    <div className={styles.travelStart}>
-                        <div className={styles.travelStartLogoContainer}>
-                        </div>
-                        <div className={styles.travelStartData}>
-                            <div className={styles.travelDataCity}>Омск, автовокзал</div>
-                            <span className={styles.travelDataSeparator}> / </span>
-                            <div className={styles.travelDataTime}>25.01.2222 16:59</div>
-                        </div>
-                    </div>
-                    <div className={styles.travelEnd}>
-                        <div className={styles.travelEndLogoContainer}>
-                        </div>
-                        <div className={styles.travelEndData}>
-                            <div className={styles.travelDataCity}>Астана, автовокзал</div>
-                            <span className={styles.travelDataSeparator}> / </span>
-                            <div className={styles.travelDataTime}>26.01.2229 12:22</div>
+                        <div className={styles.travelEnd}>
+                            <div className={styles.travelEndLogoContainer}>
+                                <span className={styles.travelEndLogoContainerText}> 16:59 </span>
+                            </div>
+                            <div className={styles.travelEndData}>
+                                <div className={styles.travelDataCity}>Астана, автовокзал</div>
+                                <span className={styles.travelDataSeparator}> / </span>
+                                <div className={styles.travelDataTime}>26.01.2229</div>
+                            </div>
                         </div>
                     </div>
                 </div>
