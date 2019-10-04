@@ -1,0 +1,28 @@
+#departureTime{
+  padding-left: 10px !important;
+  color: #000055;
+}
+
+#arrivalInput{
+  padding-left: 5px !important;
+  color: #000055;
+
+}
+
+
+
+#departureInput{
+  padding-left: 5px !important;
+  color: #000055;
+}
+
+
+#departureInputLabel:not(.Mui-focused){
+ padding-left: 10px;
+  color: #000055;
+}
+
+#arrivalInputLabel:not(.Mui-focused){
+  padding-left: 10px;
+  color: #000055;
+}

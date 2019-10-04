@@ -1,10 +1,28 @@
-$color-primary : #ffffff;
-$color-secondary : #bbc3c6;
-$color-secondary-lighter : #e2ebed;
-$color-text : #1e1e20;
-$color-elements : #962715;
-$color-elements-active: #a01d26;
+//color variables
+$color-background: #eff1f4;
+$color-background-panels: #eee;
+$color-background-containers: #fff;
+$color-navbar: #2196f3;
+$color-buttons: #2196f3;
 
+//text-variables
+$font-headers: 700 20px/24px Open Sans,Tahoma,sans-serif;
+$font-regular: normal 18px/20px Open Sans,Tahoma,sans-serif;
+$font-regular-smaller: normal 14px/18px Open Sans,Tahoma,sans-serif;
+
+$font-headers-mobile: 700 18px/18px Open Sans,Tahoma,sans-serif;
+$font-regular-mobile: normal 16px/16px Open Sans,Tahoma,sans-serif;
+$font-regular-smaller-mobile: normal 14px/14px Open Sans,Tahoma,sans-serif;
+//text-color-variables
+$font-color-headers: #001779;
+$font-color-regular: #726ad0;
+$font-color-elements-main: #f9be2c;
+$font-color-elements-additional: #726ad0;
+
+//size variables
+$size-phones: 590px;
+$size-pads-vertical: 768px;
+$size-pads-horizontal: 1024px;
 
 
 [class^="icon-"], [class*=" icon-"] {
@@ -13,9 +31,29 @@ $color-elements-active: #a01d26;
 }
 
 .App {
-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 1rem;
-    line-height: 1.7em;
-    font-weight: 500;
+    font: $font-regular;
+    background-color: $color-background;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+}
+
+.panel{
+    width: 80%;
+    margin-top: 25px;
+}
+
+.panel.top-panel{
+    margin-top: 75px;
+}
+
+
+.ticketBuyBlock{
+    display: flex;
+    flex-direction: column;
 
 }

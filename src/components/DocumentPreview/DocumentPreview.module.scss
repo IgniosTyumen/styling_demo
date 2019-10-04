@@ -1,0 +1,8 @@
+.document{
+  margin: 0 auto;
+
+  &Card {
+    display: flex;
+    flex-direction: column;
+  }
+}

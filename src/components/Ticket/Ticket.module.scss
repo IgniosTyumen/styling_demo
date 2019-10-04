@@ -1,0 +1,383 @@
+@import "./../../App";
+
+.ticketWrapper {
+  margin-bottom: 5px;
+}
+
+.ticket {
+  padding: 0;
+  background-color: $color-background-containers;
+  margin-top: 5px;
+
+  &Top {
+    padding: 10px 15px;
+    color: $font-color-headers;
+  }
+
+  &Time {
+
+    &Item {
+      color: $font-color-headers;
+      font: $font-headers;
+      display: inline-block;
+      position: relative;
+      margin-top: 10px;
+
+
+      &:last-child:before {
+        content: url("./../../assets/images/svg/to.svg");
+        width: 20px;
+        height: 30px;
+        border-radius: 30px;
+        display: block;
+        top: 0;
+        left: 0;
+        position: relative;
+        float: left;
+        color: #f9be2c;
+        margin: 0 5px;
+        text-align: center;
+      }
+    }
+  }
+
+  &Bus {
+
+    &Item {
+      font: $font-headers;
+      color: $font-color-headers;
+
+      display: inline-block;
+      position: relative;
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+  }
+
+  &Price {
+
+    &Item {
+      font: $font-headers;
+      color: $font-color-headers;
+
+      display: block;
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+  }
+
+  &Info {
+    font: $font-regular-smaller;
+    color: $font-color-regular;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+
+
+    &:before {
+      background: $color-background;
+
+
+      content: '';
+      width: 41px;
+      height: 41px;
+      border-radius: 20px;
+      display: block;
+      top: -1px;
+      left: -30px;
+      position: absolute;
+      z-index: 5;
+    }
+
+    &:after {
+      background: $color-background;
+      content: '';
+      width: 41px;
+      height: 41px;
+      border-radius: 20px;
+      display: block;
+      top: -1px;
+      right: -30px;
+      position: absolute;
+      z-index: 5;
+    }
+
+    &Icon {
+      margin-left: 10px;
+    }
+  }
+
+  &Bottom {
+    padding: 15px;;
+
+    &Item {
+      margin-right: 10px;
+      max-width: calc(100% + 25px);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+      position: relative;
+      font: $font-regular;
+      color: $font-color-regular;
+    }
+
+    &Button {
+      &Container {
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+.routeInfo {
+  padding: 0;
+  background-color: $color-background-containers;
+  border-top: 2px dotted #ddd;
+
+
+  &Route {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &Decorator{
+      margin-left: 10px;
+      width: 15px;
+      height: 15px;
+      background-color: $font-color-headers;
+      border-radius: 15px;
+      position: relative;
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width: 8px;
+        height: 8px;
+        border-radius: 8px;
+        background: $color-buttons;
+
+      }
+
+     &:not(&Last):before{
+        content: '';
+        position: absolute;
+        top: 100%;
+        bottom: 0;
+        width: 2px;
+        background: $color-buttons;
+        left: calc(50% - 1px);
+        height: 25px;
+      }
+    }
+
+   &Point{
+     padding: 10px;
+     font: $font-regular;
+     color: $font-color-regular;
+    }
+  }
+}
+
+.ticketBottomButtonContainerButton{
+  width: auto;
+}
+
+.ticketBottomButtonContainerButtonBuy{
+  width: auto;
+}
+
+.ticketBottomButtonContainerButtonRoute{
+  width: auto;
+}
+
+.ticketBottomButtonContainer{
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.ticketMobileInfo{
+display: none;
+}
+
+@media screen and (max-width: $size-phones){
+
+  .ticket {
+
+    &Top {
+      padding: 5px 10px;
+
+      &Duration{
+        display: none;
+      }
+
+      &Places{
+        font: $font-regular-mobile;
+      }
+    }
+
+    &Time {
+      &Item {
+        font: $font-headers-mobile;
+        margin-top: 5px;
+
+        &:last-child:before {
+          content: url("./../../assets/images/svg/to.svg");
+          width: 10px;
+          height: 15px;
+          border-radius: 15px;
+          color: $color-buttons;
+          margin-left: 4px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    &Bus {
+      &Item {
+      display: none;
+      }
+    }
+
+    &Price {
+
+      &Item {
+        font: $font-headers-mobile;
+        color: $font-color-headers;
+        margin-top: 5px;
+      }
+    }
+
+    &Info {
+      display: none;
+      }
+
+    &Bottom {
+      padding: 10px;
+
+      &Item {
+       font: $font-regular-mobile;
+        color: $font-color-headers;
+      }
+
+    }
+  }
+
+  .routeInfo {
+    padding: 0;
+    background-color: $color-background-containers;
+    border-top: 2px dotted #ddd;
+
+
+    &Route {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      &Decorator{
+        margin-left: 10px;
+        width: 15px;
+        height: 15px;
+        background-color: $font-color-headers;
+        border-radius: 15px;
+        position: relative;
+
+        &:after{
+          content: '';
+          position: absolute;
+          top: 50%;
+          left:50%;
+          transform: translate(-50%,-50%);
+          width: 8px;
+          height: 8px;
+          border-radius: 8px;
+          background: $color-buttons;
+
+        }
+
+        &:not(&Last):before{
+          content: '';
+          position: absolute;
+          top: 100%;
+          bottom: 0;
+          width: 2px;
+          background: $color-buttons;
+          left: calc(50% - 1px);
+          height: 25px;
+        }
+      }
+
+      &Point{
+        padding: 10px;
+        font: $font-regular;
+        color: $font-color-regular;
+      }
+    }
+  }
+
+  .ticketBottomButtonContainerButtonRoute{
+   display: none !important;
+  }
+
+  .ticketBottomButtonContainerButtonBuy{
+    display: none !important;
+  }
+
+  .ticketMobileInfo{
+    width: 99vw !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &Price{
+      font: $font-headers-mobile;
+      font-weight: 700;
+      color: $font-color-headers;
+      padding: 5px;
+      padding-top: 10px;
+
+    }
+
+    &Text{
+      font: $font-regular-mobile;
+      color: $font-color-regular;
+      padding: 5px;
+    }
+
+    &Additional{
+      font: $font-regular-mobile;
+      color: $font-color-regular;
+      padding: 5px;
+    }
+
+    &RouteButton{
+      align-self: end;
+      display: block !important;
+      margin: 0 auto !important;
+    }
+  }
+
+  .ticketMobileInfoBackButton{
+    justify-self: start;
+    align-self: start;
+    margin-left: 10px !important;
+  }
+
+  .ticketMobileInfoRouteContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+}

@@ -1,61 +1,60 @@
-@import './../../App.scss';
+@import "./../../App";
 
-.inputFieldRoutes{
+.routeSelector{
+  margin: 5px !important;
+  flex-grow: 1;
 
-  position: relative;
+
+  &Input {
+    margin-top: 16px;
+    color: $color-navbar;
+    padding-left: 15px;
+    background-color: $color-background-containers;
+    border-radius: 5px;
+  }
+
+  &Placeholder{
+    color: $font-headers;
+  }
+}
+
+.routeSelectorWrapper{
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-wrap: wrap;
 
 }
 
-.inputField{
-  height: 35px;
-  width: 300px;
-  color: $color-text;
-  background-color: $color-primary;
-  border: none;
-  border: 1px solid $color-secondary;
-  transition: all 0.5s;
+.routeSelectorDate{
+  flex-grow: 1;
+  color: $font-color-headers;
+  border-radius: 5px;
+  margin-top: 21px;
+  height: 33px;
+  margin-left: 1px;
+  background-color: $color-background-containers;
+
+  &Input{
+    width: 100%;
+    height: 100%;
+
+  }
+
 }
 
+@media screen and (max-width:$size-phones){
 
-.inputFieldArrival{
-  position: relative;
-  top:-35px;
-  transform: rotateX(180deg);
-  z-index: -1;
-}
+  .routeSelector {
 
+    &Input {
+      margin-top: 5px;
+    }
+  }
 
-.inputFieldArrivalAnimate{
-  transform: rotateX(0deg);
-  top: 0;
-  z-index: 1;
-}
+  .routeSelectorDate{
+    margin: 0 auto;
+    margin-top: 11px;
+  }
 
-.inputFieldContainer{
-  display: flex;
-  flex-direction: row;
-  z-index: 1;
-}
-
-
-.inputFieldCalendar{
-  width: 66px;
-  height: 66px;
-  text-align: center;
-  position: relative;
-  left:-64px;
-  z-index: -1;
-  opacity: 0;
-  transform: rotateY(180deg);
-}
-
-.inputFieldCalendarAnimate{
-  transform: rotateY(0deg);
-  left: 0;
-  opacity: 1;
-  z-index: 1;
 }

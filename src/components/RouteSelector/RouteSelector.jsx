@@ -1,40 +1,54 @@
 import React, {useState} from "react";
-import styles from './RouteSelector.module.scss';
-import {format} from 'date-fns/esm';
+import {FormControl, InputLabel, Input} from '@material-ui/core';
+import {
+    MuiPickersUtilsProvider,
+    KeyboardDatePicker,
+} from '@material-ui/pickers';
+import 'date-fns';
+import 'antd/dist/antd.css';
+import styles from './RouteSelector.module.scss'
+import DateFnsUtils from '@date-io/date-fns';
+import './RouteSelector.scss';
 
-export const RouteSelector = () => {
-    const [animatedArrival, setAnimatedArrival] = useState(false);
-    const [animatedCalendar, setAnimatedCalendar] = useState(false);
 
-    const onClickDepartureHandler = () => {
-        setAnimatedArrival(true)
+export const RouteSelector = (props) => {
+
+    const [selectedDate, setSelectedDate] = useState(Date.now());
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date);
     };
 
-    const onClickArrivalHandler = () => {
-        setAnimatedCalendar(true)
-    };
 
-    const current = Date.now()
     return (
-        <div className={styles.inputFieldContainer}>
-            <div className={styles.inputFieldRoutes}>
-                <select  placeholder="Откуда"
-                        className={styles.inputField + ' ' + styles.inputFieldDeparture}
-                        onClick={onClickDepartureHandler}>
-                    <option>Откуда</option>
-                    <option>1</option>
-                </select>
-                <select placeholder="Куда"
-                        className={`${styles.inputField} ${styles.inputFieldArrival} ${animatedArrival ? styles.inputFieldArrivalAnimate : ''} `}
-                        onClick={onClickArrivalHandler}>
-                    <option>Куда</option>
-                    <option>1</option>
-                </select>
-            </div>
-            <div>
-                <input type="text" placeholder={format(current, 'dd/MM/yy')}
-                       className={`${styles.inputField} ${styles.inputFieldCalendar} ${animatedCalendar ? styles.inputFieldCalendarAnimate : ''} `}/>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <div className={styles.routeSelectorWrapper}>
+            <FormControl className={styles.routeSelector}>
+                <Input id="departureInput" aria-describedby="departureInputText" className={styles.routeSelectorInput} placeholder="Станция отправления" disableUnderline>
+                </Input>
+            </FormControl>
+            <FormControl className={styles.routeSelector}>
+                <Input id="arrivalInput" aria-describedby="departureInputText" className={styles.routeSelectorInput} placeholder="Станция назначения" disableUnderline>
+                </Input>
+            </FormControl>
+            <div className={styles.routeSelectorDate}>
+                    <KeyboardDatePicker
+
+                        id="departureTime"
+                        format="dd/MM/yy"
+                        value={selectedDate}
+                        onChange={handleDateChange}
+                        className={styles.routeSelectorDateInput}
+                        KeyboardButtonProps={{
+                            'aria-label': 'Дата поездки',
+                        }}
+                        InputProps={{
+                            disableUnderline: true,
+                        }}
+                    />
+
             </div>
         </div>
+        </MuiPickersUtilsProvider>
     )
 };
