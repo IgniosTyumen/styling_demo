@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button, Grid, Toolbar} from '@material-ui/core'
+import {Button, Grid, TextField, Toolbar} from '@material-ui/core'
 import EventBusyOutlinedIcon from '@material-ui/icons/EventBusyOutlined';
 import AirlineSeatReclineExtraOutlinedIcon from '@material-ui/icons/AirlineSeatReclineExtraOutlined';
 import GpsFixedOutlinedIcon from '@material-ui/icons/GpsFixedOutlined';
@@ -19,8 +19,8 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import Drawer from "@material-ui/core/Drawer";
 import Typography from "@material-ui/core/Typography";
-import Fab from '@material-ui/core/Fab';
 import AppBar from "@material-ui/core/AppBar";
+import Divider from "@material-ui/core/Divider";
 
 
 const Ticket = (props) => {
@@ -28,10 +28,16 @@ const Ticket = (props) => {
     const [openBuyModal, setOpenBuyModal] = React.useState(false);
     const [openMobileInfo, setOpenMobileInfo] = React.useState(false);
     const [routeVisibleMobile, setRouteVisibleMobile] = React.useState(false);
+    const [luggage, setLuggage] = React.useState(0);
 
     const handleRouteOpen = () => {
         setRouteVisible(!routeVisible);
     };
+
+    const handleLuggageChange = (event) => {
+        const number = event.target.value;
+        setLuggage(number);
+    } ;
 
     const handleClickBuyModalOpen = () => {
         setOpenBuyModal(true);
@@ -58,51 +64,65 @@ const Ticket = (props) => {
     const fullMobileInfoContent = () => {
         return (
             <div className={styles.ticketMobileInfo}>
-                <Fab onClick={handleCloseMobileInfo} color="primary" className={styles.ticketMobileInfoBackButton}>
-                    <ArrowBackIosOutlinedIcon/>
-                </Fab>
+                <AppBar position="relative" className={styles.ticketMobileInfoHeader}>
+                    <Toolbar>
+                        <Button color="inherit" onClick={handleCloseMobileInfo} ><ArrowBackIosOutlinedIcon/></Button>
+                        <Typography variant="h6" color="inherit" className={styles.ticketMobileInfoDirection}>
+                            Тюмень-Антипино
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+
                 <Typography className={styles.ticketMobileInfoPrice}>450 руб</Typography>
+                <Divider variant="fullWidth" className={styles.ticketMobileInfoDivider}/>
                 <div className={styles.ticketMobileInfoTextContainer}>
                     <Typography className={styles.ticketMobileInfoText}>551 Тюмень-Тюмень</Typography>
-                    <PinDropIcon className={styles.ticketMobileInfoIcon}/>
-                    <span className={styles.ticketMobileInfoText}>Тюмень АВ 26/05/2014 16:25</span>
+
+                </div>
+                <Divider variant="fullWidth" className={styles.ticketMobileInfoDivider}/>
+                <div className={styles.ticketMobileInfoAdditional}>
+                    <EventBusyOutlinedIcon className={styles.ticketMobileInfoIcon}/><span className={styles.ticketMobileInfoAdditionalText}>Ежедневно</span><br/>
+                    <AirlineSeatReclineExtraOutlinedIcon className={styles.ticketMobileInfoIcon}/><span className={styles.ticketMobileInfoAdditionalText}>Мягкий</span><br/>
+                    <GpsFixedOutlinedIcon className={styles.ticketMobileInfoIcon}/><span className={styles.ticketMobileInfoAdditionalText}> 15 остановок</span><br/>
+                    <WorkOutlineOutlinedIcon className={styles.ticketMobileInfoIcon}/> <span className={styles.ticketMobileInfoAdditionalText}>46 мест багажа</span><br/>
+                    <AvTimerIcon className={styles.ticketMobileInfoIcon}/> <span className={styles.ticketMobileInfoAdditionalText}>24 часа в пути</span><br/>
+                    <GestureIcon className={styles.ticketMobileInfoIcon}/><span className={styles.ticketMobileInfoAdditionalText}> 765 км</span><br/>
+                </div>
+                <Divider variant="fullWidth" className={styles.ticketMobileInfoDivider}/>
+                <div className={styles.ticketMobileInfoAdditional}>
+                    <LocationOnIcon className={styles.ticketMobileInfoIcon}/>
+                    <span className={styles.ticketMobileInfoText}><span className={styles.ticketMobileInfoAdditionalText}>Тюмень АВ 26/05/2014 16:25</span></span>
                     {!routeVisibleMobile && <Button variant="text" color="primary"
                                                     onClick={toggleRouteInfoMobile}
                                                     className={styles.ticketMobileInfoRouteButton}
-                    >Маршрут</Button>}
+                    >Полный маршрут</Button>}
                     <Collapse in={routeVisibleMobile}>
                         <div onClick={toggleRouteInfoMobile} className={styles.ticketMobileInfoRouteContainer}>
                             <div>
                                 <RoomOutlinedIcon className={styles.ticketMobileInfoIcon}/>
-                                <span className={styles.ticketMobileInfoText}>Тюмень АВ 26/05/2014 16:25</span>
+                                <span className={styles.ticketMobileInfoText}><span className={styles.ticketMobileInfoAdditionalText}>Тюмень АВ 26/05/2014 16:25, стоянка 15 мин.</span></span>
                             </div>
                             <div>
                                 <RoomOutlinedIcon className={styles.ticketMobileInfoIcon}/>
-                                <span className={styles.ticketMobileInfoText}>Тюмень АВ 26/05/2014 16:25</span>
+                                <span className={styles.ticketMobileInfoText}><span className={styles.ticketMobileInfoAdditionalText}>Тюмень АВ 26/05/2014 16:25, стоянка 15 мин.</span></span>
                             </div>
                             <div>
                                 <RoomOutlinedIcon className={styles.ticketMobileInfoIcon}/>
-                                <span className={styles.ticketMobileInfoText}>Тюмень АВ 26/05/2014 16:25</span>
+                                <span className={styles.ticketMobileInfoText}><span className={styles.ticketMobileInfoAdditionalText}>Тюмень АВ 26/05/2014 16:25, стоянка 15 мин.</span></span>
                             </div>
                             <div>
                                 <RoomOutlinedIcon className={styles.ticketMobileInfoIcon}/>
-                                <span className={styles.ticketMobileInfoText}>Тюмень АВ 26/05/2014 16:25</span>
+                                <span className={styles.ticketMobileInfoText}><span className={styles.ticketMobileInfoAdditionalText}>Тюмень АВ 26/05/2014 16:25, стоянка 15 мин.</span></span>
                             </div>
                         </div>
                     </Collapse>
-                    <LocationOnIcon className={styles.ticketMobileInfoIcon}/>
-                    <span className={styles.ticketMobileInfoText}>Тюмень АВ 26/05/2014 16:25</span>
+                    <PinDropIcon className={styles.ticketMobileInfoIcon}/>
+                    <span className={styles.ticketMobileInfoText}><span className={styles.ticketMobileInfoAdditionalText}>Тюмень АВ 26/05/2014 16:25</span></span>
                 </div>
-                <div className={styles.ticketMobileInfoAdditional}>
-                    <EventBusyOutlinedIcon className={styles.ticketMobileInfoIcon}/>Ежедневно<br/>
-                    <AirlineSeatReclineExtraOutlinedIcon className={styles.ticketMobileInfoIcon}/>Мягкий<br/>
-                    <GpsFixedOutlinedIcon className={styles.ticketMobileInfoIcon}/> 15 остановок<br/>
-                    <WorkOutlineOutlinedIcon className={styles.ticketMobileInfoIcon}/> 46 мест багажа<br/>
-                    <AvTimerIcon className={styles.ticketMobileInfoIcon}/> 24 часа в пути<br/>
-                    <GestureIcon className={styles.ticketMobileInfoIcon}/> 765 км<br/>
-                </div>
+                <Divider variant="fullWidth" className={styles.ticketMobileInfoDivider}/>
                 <Button variant="outlined" color="primary"
                         onClick={handleClickBuyModalOpen}
+                        className={styles.ticketMobileInfoBuyButton}
                 >Купить билет</Button>
 
 
@@ -118,7 +138,7 @@ const Ticket = (props) => {
               alignItems="center"
 
         >
-            <Grid item xs={12} sm={6} className={styles.ticket} onClick={handleOpenMobileInfo}>
+            <Grid item xs={12} sm={10} md={10} lg={10} xl={10} className={styles.ticket} onClick={handleOpenMobileInfo}>
                 <div className={styles.ticketTop}>
                     <Grid container direction="row" justify="space-between">
                         <div className={styles.ticketTime}>
@@ -214,6 +234,7 @@ const Ticket = (props) => {
                     </Button>
                 </DialogActions>
             </Dialog>
+
 
             <Drawer anchor="right" open={openMobileInfo} variant="persistent">
                 {fullMobileInfoContent('right')}

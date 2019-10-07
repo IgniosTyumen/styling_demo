@@ -51,7 +51,10 @@ const App = () => {
                     <ExpansionPanelDetails style={{backgroundColor: '#eee'}}>
                         <RouteSelector/>
                     </ExpansionPanelDetails>
-                    <ExpansionPanelDetails style={{backgroundColor: '#eee'}}>
+                    <ExpansionPanelDetails style={{backgroundColor: '#eee', flexWrap: 'wrap'}}>
+                        <Ticket/>
+                        <Ticket/>
+                        <Ticket/>
                         <Ticket/>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
@@ -66,7 +69,10 @@ const App = () => {
                     >
                         <Typography>Мои билеты</Typography>
                     </ExpansionPanelSummary>
-                    <ExpansionPanelDetails style={{backgroundColor: '#eee'}}>
+                    <ExpansionPanelDetails style={{backgroundColor: '#eee', flexWrap: 'wrap'}}>
+                        <Ticket/>
+                        <Ticket/>
+                        <Ticket/>
                         <Ticket/>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>

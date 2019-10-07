@@ -9,6 +9,7 @@ import 'antd/dist/antd.css';
 import styles from './RouteSelector.module.scss'
 import DateFnsUtils from '@date-io/date-fns';
 import './RouteSelector.scss';
+import ruLocale from "date-fns/locale/ru";
 
 
 export const RouteSelector = (props) => {
@@ -21,7 +22,7 @@ export const RouteSelector = (props) => {
 
 
     return (
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={ruLocale} >
         <div className={styles.routeSelectorWrapper}>
             <FormControl className={styles.routeSelector}>
                 <Input id="departureInput" aria-describedby="departureInputText" className={styles.routeSelectorInput} placeholder="Станция отправления" disableUnderline>
@@ -33,7 +34,8 @@ export const RouteSelector = (props) => {
             </FormControl>
             <div className={styles.routeSelectorDate}>
                     <KeyboardDatePicker
-
+                        autoOk={true}
+                        disablePast={true}
                         id="departureTime"
                         format="dd/MM/yy"
                         value={selectedDate}
