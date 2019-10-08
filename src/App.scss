@@ -5,19 +5,37 @@ $color-background-containers: #fff;
 $color-navbar: #2196f3;
 $color-buttons: #2196f3;
 
-//text-variables
-$font-headers: 700 20px/24px Open Sans,Tahoma,sans-serif;
-$font-regular: normal 18px/20px Open Sans,Tahoma,sans-serif;
-$font-regular-smaller: normal 14px/18px Open Sans,Tahoma,sans-serif;
+//$color-background: #e0e3df;
+//$color-background-panels: #fff;
+//$color-background-containers: #F2F5EA;
+//$color-navbar: #BBC7A4;
+//$color-buttons: #BBC7A4;
 
-$font-headers-mobile: 700 18px/18px Open Sans,Tahoma,sans-serif;
-$font-regular-mobile: normal 16px/16px Open Sans,Tahoma,sans-serif;
-$font-regular-smaller-mobile: normal 14px/14px Open Sans,Tahoma,sans-serif;
+//text-variables
+//$font-headers: 700 20px/24px Open Sans,Tahoma,sans-serif;
+//$font-regular: normal 18px/20px Open Sans,Tahoma,sans-serif;
+//$font-regular-smaller: normal 14px/18px Open Sans,Tahoma,sans-serif;
+
+$font-headers: 700 20px/24px 'Arimo', Tahoma,sans-serif !important;
+$font-regular: normal 18px/20px Forum, 'Arimo',sans-serif !important;
+$font-regular-smaller: normal 14px/18px 'Arimo', Tahoma,sans-serif !important;
+
+//$font-headers-mobile: 700 18px/18px Open Sans,Tahoma,sans-serif;
+//$font-regular-mobile: normal 16px/16px Open Sans,Tahoma,sans-serif;
+//$font-regular-smaller-mobile: normal 14px/14px Open Sans,Tahoma,sans-serif;
+
+$font-headers-mobile: 700 18px/18px 'Arimo', Tahoma,sans-serif !important;
+$font-regular-mobile: normal 16px/16px 'Arimo', Tahoma,sans-serif !important;
+$font-regular-smaller-mobile: normal 14px/14px 'Arimo', Tahoma,sans-serif !important;
 //text-color-variables
 $font-color-headers: #001779;
 $font-color-regular: #726ad0;
 $font-color-elements-main: #f9be2c;
 $font-color-elements-additional: #726ad0;
+//$font-color-headers: #2C363F;
+//$font-color-regular: #E75A7C;
+//$font-color-elements-main: #E75A7C;
+//$font-color-elements-additional: #2C363F;
 
 //size variables
 $size-phones: 590px;
@@ -56,4 +74,8 @@ $size-pads-horizontal: 1024px;
     display: flex;
     flex-direction: column;
 
+}
+
+.rollingPanel{
+    font:$font-regular;
 }

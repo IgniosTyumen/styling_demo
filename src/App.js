@@ -15,6 +15,8 @@ import Zoom from "@material-ui/core/Zoom";
 import IconButton from "@material-ui/core/IconButton";
 import {PowerSettingsNew} from "@material-ui/icons";
 import AppBar from "@material-ui/core/AppBar";
+import TicketContainer from "./components/Ticket/TicketContainer";
+import {ErrorHandlerSnackbar} from "./components/common/ErrorHandlerSnackbar";
 
 
 const App = () => {
@@ -46,16 +48,16 @@ const App = () => {
                                            aria-controls="panel1bh-content"
                                            id="panel1bh-header"
                     >
-                        <Typography>Купить билет</Typography>
+                        <Typography className="rollingPanel">Купить билет</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails style={{backgroundColor: '#eee'}}>
                         <RouteSelector/>
                     </ExpansionPanelDetails>
                     <ExpansionPanelDetails style={{backgroundColor: '#eee', flexWrap: 'wrap'}}>
-                        <Ticket/>
-                        <Ticket/>
-                        <Ticket/>
-                        <Ticket/>
+                        <TicketContainer/>
+                        <TicketContainer/>
+                        <TicketContainer/>
+                        <TicketContainer/>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
             </div>
@@ -67,13 +69,13 @@ const App = () => {
                                            aria-controls="panel1bh-content"
                                            id="panel1bh-header"
                     >
-                        <Typography>Мои билеты</Typography>
+                        <Typography className="rollingPanel">Мои билеты</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails style={{backgroundColor: '#eee', flexWrap: 'wrap'}}>
-                        <Ticket/>
-                        <Ticket/>
-                        <Ticket/>
-                        <Ticket/>
+                        <TicketContainer/>
+                        <TicketContainer/>
+                        <TicketContainer/>
+                        <TicketContainer/>
                     </ExpansionPanelDetails>
                 </ExpansionPanel>
             </div>
@@ -85,7 +87,7 @@ const App = () => {
                                            aria-controls="panel1bh-content"
                                            id="panel1bh-header"
                     >
-                        <Typography>Мои документы</Typography>
+                        <Typography className="rollingPanel">Мои документы</Typography>
                     </ExpansionPanelSummary>
                     <ExpansionPanelDetails style={{backgroundColor: '#ddd',
                     flexWrap: 'wrap'}}>
@@ -99,7 +101,11 @@ const App = () => {
                 </ExpansionPanel>
             </div>
             <Loader/>
-
+            <ErrorHandlerSnackbar error={"Ticket non payed"}/>
+            <ErrorHandlerSnackbar error={"Ticket approval waiting"}/>
+            <ErrorHandlerSnackbar error={"Return pending"}/>
+            <ErrorHandlerSnackbar error={"Payment confirmed"}/>
+            <ErrorHandlerSnackbar error={"Unknown error"}/>
         </div>
     );
 }

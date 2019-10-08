@@ -125,6 +125,7 @@
     }
 
     &Button {
+      font: $font-regular;
       &Container {
         width: auto;
         display: flex;
@@ -189,14 +190,17 @@
 }
 
 .ticketBottomButtonContainerButton{
+  font: $font-regular;
   width: auto;
 }
 
 .ticketBottomButtonContainerButtonBuy{
+  font: $font-regular;
   width: auto;
 }
 
 .ticketBottomButtonContainerButtonRoute{
+  font: $font-regular;
   width: auto;
 }
 
@@ -206,13 +210,6 @@
   flex-grow: 1;
 }
 
-.ticketMobileInfo{
-display: none;
-}
-
-.ticketMobileInfoBuyButton{
-  color: inherit;
-}
 @media screen and (max-width: $size-pads-vertical){
 
   .ticket {
@@ -269,7 +266,7 @@ display: none;
       padding: 10px;
 
       &Item {
-       font: $font-regular-mobile;
+       font: $font-regular-smaller-mobile;
         color: $font-color-headers;
       }
 
@@ -337,80 +334,5 @@ display: none;
     display: none !important;
   }
 
-  .ticketMobileInfo{
-    width: 100vw !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
-    &Header{
-      position: relative;
-    }
-
-    &Price{
-      font: $font-headers !important;
-      font-weight: 700 !important;
-      color: $font-color-headers;
-      padding: 5px;
-      padding-top: 10px;
-
-    }
-
-    &Text{
-      font: $font-regular-mobile;
-      color: $font-color-regular;
-      padding: 5px;
-    }
-
-    &Divider{
-      background-color: $color-background-panels !important;
-      width: 100%;
-    }
-
-    &Additional{
-      font: $font-regular-mobile;
-      color: $font-color-regular;
-      padding: 5px;
-      align-self: start;
-      margin-left: 20%;
-
-      &Text{
-        vertical-align: super;
-      }
-
-    }
-
-    &RouteButton{
-      align-self: end;
-      display: block !important;
-      margin: 0 auto !important;
-      margin-top: -2px !important;
-    }
-
-    &Direction{
-      width: auto;
-      position: absolute;
-      font:$font-headers-mobile;
-      left: 50%;
-      transform: translateX(-50%);
-
-    }
-
-    &BuyButton{
-      margin: 20px auto !important;
-    }
-  }
-
-  .ticketMobileInfoBackButton{
-    justify-self: start;
-    align-self: start;
-    margin-left: 10px !important;
-  }
-
-  .ticketMobileInfoRouteContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-  }
 }
